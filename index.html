@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yug_Resume</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- AOS CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+      body {
+  margin: 0;
+  padding: 0;
+  background-color: #0e0e1f;
+  height: 100vh;
+  cursor: none; /* Hide default cursor */
+}
+
+/* Cursor Core */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: #e879f9;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px #e879f9, 0 0 20px #c084fc, 0 0 30px #9333ea;
+}
+
+/* Cursor Trail */
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  background: rgba(192, 132, 252, 0.08);
+  border: 2px solid rgba(192, 132, 252, 0.2);
+  box-shadow: 0 0 40px rgba(192, 132, 252, 0.2);
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease-out;
+  mix-blend-mode: lighten;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 40px rgba(192, 132, 252, 0.3);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 80px rgba(192, 132, 252, 0.6);
+  }
+}
+
+/* Particle Sparks */
+.particle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #c084fc;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  box-shadow: 0 0 8px #a855f7;
+  opacity: 0.8;
+  animation: fadeOut 0.6s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a855f7 #1a1a1a;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a855f7;
+  border-radius: 10px;
+}
+
+  </style>
+</head>
+<body class="bg-black text-white font-inter overflow-x-hidden">
+
+  <!-- Navbar -->
+  <header class="fixed w-full z-50 bg-opacity-20 backdrop-blur-md shadow-lg">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
+      <h1 class="text-4xl font-orbitron text-gradient">Yug Rokadia</h1>
+      <nav>
+        <ul class="flex space-x-8 text-md uppercase tracking-widest font-semibold">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative h-screen flex justify-center items-center text-center text-white">
+    <canvas id="bgCanvas" class="absolute inset-0 z-0"></canvas>
+    <div class="relative z-10">
+      <h2 class="text-6xl md:text-8xl font-orbitron text-gradient animate-fadeIn">Welcome to My World</h2>
+      <p class="mt-6 text-xl md:text-2xl text-purple-300 animate-fadeIn delay-200">Software Developer | Full Stack Developer | Future Engineer</p>
+      <a href="#about" class="mt-10 inline-block border border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-black px-8 py-4 rounded-full font-bold uppercase tracking-widest neon-button">ABOUT ME</a>
+      <a href="https://www.linkedin.com/in/yug-rokadia-3415b5286/" target="_blank" class="mt-10 inline-block border border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-black px-8 py-4 rounded-full font-bold uppercase tracking-widest neon-button">LINKEDIN</a>
+    </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-24 px-8 max-w-6xl mx-auto text-center">
+    <h2 class="text-5xl font-orbitron text-gradient mb-12">Who Am I?</h2>
+    <div class="flex flex-col md:flex-row items-center gap-12">
+      <img src="https://www.mumbaimun.com/static/media/yugrokadia.2e4af69eccee0c7f3c55.jpg" alt="Pfp" class="rounded-full border-4 border-purple-500" width="300">
+      <p class="text-gray-300 leading-loose text-lg max-w-xl">
+        Hi Yug here, a curious and creative developer who loves bringing ideas to life through code. I’ve worked with Python, JavaScript, Java, Angular.js, MySQL, R, C++, HTML, and CSS (yep, a little bit of everything!). Whether I’m building sleek frontends or diving into backend logic, I’m always up for a new challenge. If it’s about turning cool concepts into working projects, I’m in!
+      </p>
+    </div>
+  </section>
+
+<!-- Programming Languages Section -->
+<section id="skills" class="py-24 px-8 bg-gray-900 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-5xl font-orbitron text-gradient mb-12">Tech Stack</h2>
+      <div class="grid gap-10 md:grid-cols-3 lg:grid-cols-4 relative z-10">
+  
+        <div class="skill-card" data-aos="flip-left" data-aos-delay="150">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-20 h-20 mx-auto mb-4">
+          <h3 class="text-xl font-bold">JavaScript</h3>
+        </div>
+  
+        <div class="skill-card" data-aos="flip-left" data-aos-delay="150">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="w-20 h-20 mx-auto mb-4">
+          <h3 class="text-xl font-bold">Java</h3>
+        </div>
+  
+        <div class="skill-card" data-aos="flip-left" data-aos-delay="150">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular.js" class="w-20 h-20 mx-auto mb-4">
+          <h3 class="text-xl font-bold">Angular.js</h3>
+        </div>
+  
+        <div class="skill-card" data-aos="flip-left" data-aos-delay="150">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="w-20 h-20 mx-auto mb-4">
+          <h3 class="text-xl font-bold">MySQL</h3>
+        </div>
+  
+        <div class="skill-card" data-aos="flip-left" data-aos-delay="150">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R" class="w-20 h-20 mx-auto mb-4">
+          <h3 class="text-xl font-bold">R</h3>
+        </div>
+  
+        <div class="skill-card" data-aos="flip-left" data-aos-delay="150">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" class="w-20 h-20 mx-auto mb-4">
+          <h3 class="text-xl font-bold">C++</h3>
+        </div>
+  
+        <div class="skill-card" data-aos="flip-left" data-aos-delay="150">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="w-20 h-20 mx-auto mb-4">
+          <h3 class="text-xl font-bold">HTML5</h3>
+        </div>
+  
+        <div class="skill-card" data-aos="flip-left" data-aos-delay="150">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="w-20 h-20 mx-auto mb-4">
+          <h3 class="text-xl font-bold">CSS3</h3>
+        </div>
+        <!-- Skill Card -->
+        <div class="skill-card" data-aos="flip-left" data-aos-delay="150">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-20 h-20 mx-auto mb-4">
+          <h3 class="text-xl font-bold">Python</h3>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="py-6 text-center text-gray-500 text-sm">
+    © 2025 Yug. Built with 💻 + ☕
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // animation duration in ms
+    offset: 120, // offset (in px) from the original trigger point
+    once: true, // whether animation should happen only once - while scrolling down
+  });
+</script>
+<script>
+// Create core cursor and trailing cursor
+const cursorDot = document.createElement('div');
+const cursorTrail = document.createElement('div');
+
+cursorDot.classList.add('cursor-dot');
+cursorTrail.classList.add('cursor-trail');
+
+document.body.appendChild(cursorDot);
+document.body.appendChild(cursorTrail);
+
+let mouseX = 0, mouseY = 0;
+let trailX = 0, trailY = 0;
+
+window.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  // Cursor dot sticks to mouse
+  cursorDot.style.top = `${mouseY}px`;
+  cursorDot.style.left = `${mouseX}px`;
+
+  // Particle effect on move
+  spawnParticle(mouseX, mouseY);
+});
+
+function animateTrail() {
+  // Smooth trailing effect
+  trailX += (mouseX - trailX) * 0.1;
+  trailY += (mouseY - trailY) * 0.1;
+
+  cursorTrail.style.top = `${trailY}px`;
+  cursorTrail.style.left = `${trailX}px`;
+
+  requestAnimationFrame(animateTrail);
+}
+
+animateTrail();
+
+function spawnParticle(x, y) {
+  const particle = document.createElement('div');
+  particle.classList.add('particle');
+  document.body.appendChild(particle);
+
+  // Random slight offset for spark scatter
+  const offsetX = (Math.random() - 0.5) * 20;
+  const offsetY = (Math.random() - 0.5) * 20;
+
+  particle.style.top = `${y + offsetY}px`;
+  particle.style.left = `${x + offsetX}px`;
+
+  // Remove particle after animation ends
+  setTimeout(() => {
+    particle.remove();
+  }, 600);
+}
+</script>
+</body>
+</html>
