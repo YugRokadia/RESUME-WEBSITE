@@ -79,6 +79,4 @@ window.addEventListener('resize', function () {
   canvas.height = innerHeight;
   init();
 });
-    }
-  }
-}
+
