@@ -68,7 +68,6 @@ function animate() {
 
   for (let i = 0; i < particlesArray.length; i++) {
     particlesArray[i].update();
-    connect();
   }
 }
 
@@ -80,24 +79,6 @@ window.addEventListener('resize', function () {
   canvas.height = innerHeight;
   init();
 });
-
-function connect() {
-  let opacityValue = 1;
-  for (let a = 0; a < particlesArray.length; a++) {
-    for (let b = a; b < particlesArray.length; b++) {
-      let dx = particlesArray[a].x - particlesArray[b].x;
-      let dy = particlesArray[a].y - particlesArray[b].y;
-      let distance = Math.sqrt(dx * dx + dy * dy);
-
-      if (distance < 100) {
-        opacityValue = 1 - distance / 100;
-        ctx.strokeStyle = `rgba(168, 85, 247, ${opacityValue})`; // same color, transparent
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-        ctx.stroke();
-      }
     }
   }
 }
